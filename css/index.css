@@ -3,14 +3,14 @@ header{
     position: absolute;
     top: 0;
     left: 0;
-
-    border-bottom: 1px solid #000;
+    transition: ease-in-out 0.25s;
 }
 
-.header.fixed {
+header.fixed {
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.9); /* 배경 불투명도 증가 */
+    backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
 header .inner{
@@ -181,13 +181,69 @@ nav ul{
 .map .txt{
     color: #606367;
     font-weight: 500;
-    margin-bottom: clamp(2.8rem,3.3vw,4.8rem);
 }
 
 .subscribe{
     height: clamp(24rem,23.6vw,34rem);
-    background: url(/img/cat_bg.png) center / cover no-repeat;
+    background: url("/img/cat_bg.png") no-repeat center / cover;
     margin-top: 18.1rem;
+    position: relative;
+}
+
+.subscribe .inner{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24rem;
+}
+
+.input_content{
+    background-color: #263140;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5.3rem 5.8rem 5.3rem 5.8rem;
+}
+
+.input_content .tit{
+    color: #fff;
+    max-width: 47.1rem;
+}
+
+.input_content .tit h3{
+    font-size: clamp(2.4rem,2.5vw,3.6rem);
+    font-weight: 700;
+    margin-bottom: 1.8rem
+}
+
+.input_content .tit .txt{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+#subscribeForm{
+    position: relative;
+}
+
+#email{
+    width: clamp(26.2rem,36.8vw,53rem);
+    background: #fff url("/img/icon/email.png") no-repeat 2.8rem / 2.4rem;
+    padding:2.2rem 17rem 2.2rem 6.8rem;
+    border-radius: 6rem;
+    box-sizing: border-box;
+}
+
+#email::placeholder{
+    color: #767676;
+    font-size: clamp(1.2rem,1.1vw,1.6rem);
+}
+
+#subscribeBtn{
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 footer .inner{
@@ -205,11 +261,107 @@ footer .inner{
 }
 
 .sns_list li{
-    width: 4.2rem;
-    height: 4.2rem;
+    height: auto;
     border-radius: 50%;
     background-color: #F29D52;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.sns_list li a{
+    width: 4.2rem;
+    height: 4.2rem;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.blog{
+    background: url("/img/icon/blog.png") no-repeat center / 24px;
+}
+
+.instagram{
+    background: url("/img/icon/instagram.png") no-repeat center / 24px;
+}
+
+.facebook{
+    background: url("/img/icon/facebook.png") no-repeat center / 24px;
+}
+
+.youtube{
+    background: url("/img/icon/youtube.png") no-repeat center / 24px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_content {
+    width: clamp(30rem,41.7vw,60rem);
+    background: url("/img/popup/popup-bg.png");
+    padding: 6rem 0 4rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal_content h2{
+    font-size: clamp(2.4rem,2.5vw,3.6rem);
+    font-weight: 700;
+    margin: 2.4rem 0 1.2rem;
+}
+
+.modal_content p{
+    font-size: 1.4rem;
+    margin-bottom: 3.8rem;
+}
+/* Top button */
+.top_btn{
+    position: fixed;
+    right: 2.4rem;
+    bottom: 1.9rem;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s;
+}
+
+.top_btn.stop {
+    position: absolute;
+    top: -10rem;
+}
+
+.top_btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top_btn button{
+    width: 5rem;
+    height: 5rem;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: url("/img/icon/top_btn.png") center no-repeat;
+}
+
+.top_btn button:hover{
+    background: url("/img/icon/top_btn_hov.png") center no-repeat;
+    transition: ease-in-out 0.25s;
 }

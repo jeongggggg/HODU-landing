@@ -6,8 +6,6 @@
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/index.css">
-
-    <script src="./js/index.js"></script>
 </head>
 <body>
     <div class="wrap">
@@ -123,8 +121,20 @@
             </div>
         </section>
         <section class="subscribe">
-            <div class=".inner w_1280">
-
+            <div class="inner w_1280">
+                 <div class="input_content">
+                     <div class="tit">
+                         <h3>Subscribe to our Blog post</h3>
+                         <div class="txt">
+                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                             Lorem Ipsum has been the industry's standard dummy text
+                         </div>
+                     </div>
+                     <form id="subscribeForm">
+                         <input type="email" id="email" name="email" placeholder="Enter your e-mail address">
+                         <button type="submit" id="subscribeBtn" class="orange_btn">Subscribe</button>
+                     </form>
+                 </div>
             </div>
         </section>
         <footer>
@@ -134,28 +144,34 @@
                 </a>
                 <ul class="sns_list">
                     <li>
-                        <a href="/" target="_blank" class="blog">
-                            <img src="./img/icon/blog.png" alt="블로그 바로가기">
-                        </a>
+                        <a href="/" target="_blank" class="blog">blog 바로가기</a>
                     </li>
                     <li>
-                        <a href="/" target="_blank" class="instagram">
-                            <img src="./img/icon/instagram.png" alt="인스타그램 바로가기">
-                        </a>
+                        <a href="/" target="_blank" class="instagram">instagram 바로가기</a>
                     </li>
                     <li>
-                        <a href="/" target="_blank" class="facebook">
-                            <img src="./img/icon/facebook.png" alt="페이스북 바로가기">
-                        </a>
+                        <a href="/" target="_blank" class="facebook">facebook 바로가기</a>
                     </li>
                     <li>
-                        <a href="/" target="_blank" class="youtube">
-                            <img src="./img/icon/youtube.png" alt="유튜브 바로가기">
-                        </a>
+                        <a href="/" target="_blank" class="youtube">youtube 바로가기</a>
                     </li>
                 </ul>
             </div>
         </footer>
+        <!-- Modal -->
+        <div id="subscribeModal" class="modal">
+            <div class="modal_content">
+                <img src="./img/popup/cat.png" alt="팝업 고양이 로고">
+                <h2 class="or_c">Thank you!</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing industry.</p>
+                <button type="button" id="modalOkBtn" class="orange_btn">OK! I love HODU</button>
+            </div>
+        </div>
+        <!-- Top button -->
+        <div class="top_btn">
+            <button type="button">맨 상단으로 올라가기</button>
+        </div>
     </div>
+    <script src="./js/index.js"></script>
 </body>
 </html>
