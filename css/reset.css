@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -25,8 +25,6 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -34,8 +32,14 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
+html{
+    font-size: 62.5%;
+}
+
 body {
     line-height: 1;
+    font-size: 1.6rem;
 }
 ol, ul {
     list-style: none;
@@ -67,3 +71,22 @@ button{
 button:hover{
     cursor: pointer;
 }
+
+.w_1280{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.orange_btn{
+    color: #fff;
+    background-color: #D97652;
+    padding: 1.5rem 3.3rem 1.5rem 3.1rem;
+    border-radius: 40px;
+    font-size: 1.6rem;
+}
+
+.or_c{
+    color: #D97652;
+}
+
