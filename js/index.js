@@ -39,6 +39,27 @@ topBtn.addEventListener('click', function() {
     });
 });
 
+// scroll top button 스크롤 탑 버튼 stop 클래스 추가
+window.addEventListener('scroll', function() {
+    const sct = window.scrollY,
+        viewportHeight = window.innerHeight,
+        scrollBtnWrap = document.querySelector('.top_btn'),
+        footer = document.querySelector('footer'),
+        wrap = document.querySelector('.wrap'),
+        containerBtm = sct + viewportHeight,
+        wrapHeight = wrap.offsetHeight,
+        footerHeight = footer.offsetHeight,
+        contHeight = wrapHeight - footerHeight;
+
+    if (containerBtm >= contHeight) {
+        scrollBtnWrap.classList.add('stop');
+    } else {
+        scrollBtnWrap.classList.remove('stop');
+    }
+});
+
+
+
 // 모달 딤 클릭 시 닫기
 window.onclick = function(event) {
     const modal = document.getElementById('subscribeModal');

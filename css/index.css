@@ -16,12 +16,6 @@
     justify-content: space-between;
 }
 
-.sec01_left_contain{
-    display: flex;
-    gap: clamp(3rem,2.8vw,4rem);
-    flex-direction: column;
-}
-
 .sec01_left_contain h1{
     font-size: clamp(2.4rem,3.3vw,4.8rem);
     font-weight: 700;
@@ -31,6 +25,7 @@
 
 .sec01 .txt{
     max-width: 42rem;
+    margin: clamp(3rem,2.8vw,4rem) 0 clamp(3rem,2.8vw,4rem);;
 }
 
 .sec01_img{
@@ -253,39 +248,4 @@
 .modal_content p{
     font-size: 1.4rem;
     margin-bottom: 3.8rem;
-}
-/* Top button */
-.top_btn{
-    position: fixed;
-    right: 2.4rem;
-    bottom: 1.9rem;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s;
-}
-
-.top_btn.stop {
-    position: absolute;
-    top: -10rem;
-}
-
-.top_btn.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.top_btn button{
-    width: 5rem;
-    height: 5rem;
-    text-indent: 100%;
-    white-space: nowrap;
-    background: url("/img/icon/top_btn.png") center no-repeat;
-}
-
-.top_btn button:hover{
-    background: url("/img/icon/top_btn_hov.png") center no-repeat;
-    transition: ease-in-out 0.25s;
 }

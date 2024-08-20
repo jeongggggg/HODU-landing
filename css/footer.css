@@ -2,6 +2,10 @@
  * footer
  * **************************************** */
 
+footer{
+    position: relative;
+}
+
 footer .inner{
     display: flex;
     align-items: center;
@@ -48,4 +52,43 @@ footer .inner{
 
 .youtube{
     background: url("/img/icon/youtube.png") no-repeat center / 24px;
+}
+
+/* Top button */
+
+.top_btn{
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    right: 2.4rem;
+    bottom: 1.9rem;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s;
+}
+
+.top_btn.stop {
+    position: absolute;
+    top: -10rem;
+}
+
+.top_btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top_btn button{
+    width: 100%;
+    height: 100%;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: url("/img/icon/top_btn.png") no-repeat center / cover;
+}
+
+.top_btn button:hover{
+    background: url("/img/icon/top_btn_hov.png") no-repeat center / cover;
+    transition: ease-in-out 0.25s;
 }
