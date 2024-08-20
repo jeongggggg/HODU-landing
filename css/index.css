@@ -14,10 +14,11 @@ header.fixed {
 }
 
 header .inner{
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: clamp(2.4rem, 1.8vw, 2.6rem) 0;
+    padding: clamp(2.4rem, 1.8vw, 2.6rem) 3.2rem;
 }
 
 nav{
@@ -44,7 +45,6 @@ nav ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 17rem;
 }
 
 .sec01_left_contain{
@@ -84,7 +84,7 @@ nav ul{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 11rem;
+    gap: clamp(3.2rem,4.6vw,11rem);
 }
 
 .sec02_img{
@@ -172,6 +172,10 @@ nav ul{
     font-weight: 700;
 }
 
+.map{
+    margin-bottom: 18.1rem;
+}
+
 .map h2{
     font-size: clamp(2.4rem,2.6vw ,3.8rem);
     font-weight: 700;
@@ -188,17 +192,13 @@ nav ul{
 }
 
 .subscribe{
-    height: clamp(24rem,23.6vw,34rem);
     background: url("/img/cat_bg.png") no-repeat center / cover;
-    margin-top: 18.1rem;
+    padding-bottom: 18.1rem;
     position: relative;
 }
 
 .subscribe .inner{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 24rem;
+    transform: translateY(-50%);
 }
 
 .input_content{
@@ -255,7 +255,8 @@ footer .inner{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5.8rem 0 6rem;
+    padding: 5.8rem 2rem 6rem;
+    box-sizing: border-box;
 }
 
 .sns_list{
@@ -368,4 +369,18 @@ footer .inner{
 .top_btn button:hover{
     background: url("/img/icon/top_btn_hov.png") center no-repeat;
     transition: ease-in-out 0.25s;
+}
+
+/* **************************************** *
+ * Responsive
+ * **************************************** */
+
+/* tablet */
+@media (max-width: 767px) {
+
+}
+
+/* mobile */
+@media (max-width: 575px) {
+
 }

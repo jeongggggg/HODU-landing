@@ -80,6 +80,11 @@ button:hover{
     cursor: pointer;
 }
 
+img{
+    width: 100%;
+    max-width: 100%;
+}
+
 .w_1280{
     width: 100%;
     max-width: 1280px;
@@ -96,5 +101,9 @@ button:hover{
 
 .or_c{
     color: #D97652;
+}
+
+.side_pd{
+    padding: 0 3.2rem;
 }
 
