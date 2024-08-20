@@ -4,8 +4,13 @@
 
 /* tablet */
 @media (max-width: 767px) {
+
     br.pc{
         display: none;
+    }
+
+    .sec01_left_contain h1{
+        color: red;
     }
 }
 
