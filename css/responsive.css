@@ -1,0 +1,15 @@
+/* **************************************** *
+ * Responsive
+ * **************************************** */
+
+/* tablet */
+@media (max-width: 767px) {
+    br.pc{
+        display: none;
+    }
+}
+
+/* mobile */
+@media (max-width: 575px) {
+
+}

@@ -1,37 +1,6 @@
-header{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: ease-in-out 0.25s;
-}
-
-header.fixed {
-    position: fixed;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-}
-
-header .inner{
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: clamp(2.4rem, 1.8vw, 2.6rem) 3.2rem;
-}
-
-nav{
-    display: flex;
-}
-
-nav ul{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-right: 4.9rem;
-}
+/* **************************************** *
+ * index.html
+ * **************************************** */
 
 .sec01{
     height: clamp(79.4rem,62.5vw, 90rem);
@@ -62,12 +31,6 @@ nav ul{
 
 .sec01 .txt{
     max-width: 42rem;
-}
-
-.txt{
-    font-size: clamp(1.4rem,1.1vw,1.6rem);
-    line-height: clamp(1.8rem,1.4vw,2rem);
-    word-break: break-word;
 }
 
 .sec01_img{
@@ -251,55 +214,10 @@ nav ul{
     transform: translateY(-50%);
 }
 
-footer .inner{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5.8rem 2rem 6rem;
-    box-sizing: border-box;
-}
+/* **************************************** *
+ * Modal
+ * **************************************** */
 
-.sns_list{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.sns_list li{
-    height: auto;
-    border-radius: 50%;
-    background-color: #F29D52;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sns_list li a{
-    width: 4.2rem;
-    height: 4.2rem;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.blog{
-    background: url("/img/icon/blog.png") no-repeat center / 24px;
-}
-
-.instagram{
-    background: url("/img/icon/instagram.png") no-repeat center / 24px;
-}
-
-.facebook{
-    background: url("/img/icon/facebook.png") no-repeat center / 24px;
-}
-
-.youtube{
-    background: url("/img/icon/youtube.png") no-repeat center / 24px;
-}
-
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -369,18 +287,4 @@ footer .inner{
 .top_btn button:hover{
     background: url("/img/icon/top_btn_hov.png") center no-repeat;
     transition: ease-in-out 0.25s;
-}
-
-/* **************************************** *
- * Responsive
- * **************************************** */
-
-/* tablet */
-@media (max-width: 767px) {
-
-}
-
-/* mobile */
-@media (max-width: 575px) {
-
 }

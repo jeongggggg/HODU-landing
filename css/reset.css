@@ -107,3 +107,9 @@ img{
     padding: 0 3.2rem;
 }
 
+.txt{
+    font-size: clamp(1.4rem,1.1vw,1.6rem);
+    line-height: clamp(1.8rem,1.4vw,2rem);
+    word-break: break-word;
+}
+
