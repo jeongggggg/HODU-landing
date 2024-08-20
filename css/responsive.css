@@ -5,16 +5,30 @@
 /* tablet */
 @media (max-width: 767px) {
 
-    br.pc{
-        display: none;
+    .sec01{
+        height: 100vh;
+    }
+    .sec01 .inner {
+        justify-content: flex-end;
+        text-align: center;
+        flex-direction: column;
     }
 
-    .sec01_left_contain h1{
-        color: red;
+    .sec01_img{
+        height: auto;
+    }
+    .sec01_img img{
+        max-width: 19.7rem;
+    }
+
+    .img_list_content ul{
+        grid-template-columns: repeat(2, minmax(auto, 37.8rem));
     }
 }
 
 /* mobile */
-@media (max-width: 575px) {
-
+@media (max-width: 600px) {
+    .sec02 .inner{
+        flex-wrap: wrap;
+    }
 }

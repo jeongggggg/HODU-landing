@@ -101,12 +101,12 @@
 }
 
 .img_list_content ul{
-    display: flex;
+    display: grid;
     gap: clamp(3.2rem,5vw,7.2rem);
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-bottom: clamp(6rem,7vw,10rem);
+    grid-template-columns: repeat(3, minmax(auto, 37.8rem));
 }
 
 .img_list_content ul li{
@@ -148,6 +148,7 @@
 .map .txt{
     color: #606367;
     font-weight: 500;
+    margin-bottom: clamp(2.8rem,3.3vw,4.8rem);
 }
 
 .map_content img{
