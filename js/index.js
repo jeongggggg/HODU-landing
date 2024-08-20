@@ -10,6 +10,16 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// 햄버거 메뉴 버튼 클릭 시 메뉴 표시/숨김
+document.querySelector('.ham_btn').addEventListener('click', function() {
+    document.querySelector('.ham_menu').classList.add('on');
+});
+
+// 닫기 버튼 클릭 시 메뉴 숨김
+document.querySelector('.ham_close_btn').addEventListener('click', function() {
+    document.querySelector('.ham_menu').classList.remove('on');
+});
+
 // 스크롤 탑버튼 동작
 const topBtn = document.querySelector('.top_btn');
 window.addEventListener('scroll', function() {

@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard';
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 
 *{
-    font-family: 'Pretendard-Regular', 'Noto Sans', sans-serif;
+    font-family: 'Pretendard', 'Noto Sans', sans-serif;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -114,13 +114,14 @@ img{
     word-break: break-word;
 }
 
-br.pc{
+.pc{
+    display: block;
     @media (max-width: 767px) {
         display: none;
     }
 }
 
-br.mo{
+.mo{
     display: none;
     @media (max-width: 767px) {
        display: block;
