@@ -7,6 +7,9 @@
 
 *{
     font-family: 'Pretendard', 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -22,8 +25,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
     border: 0;
     vertical-align: baseline;
 }
@@ -35,11 +36,13 @@ footer, header, hgroup, menu, nav, section {
 
 html{
     font-size: 62.5%;
+    overflow-x: hidden;
 }
 
 body {
     line-height: 1;
     font-size: 1.6rem;
+    overflow-x: hidden;
 }
 ol, ul {
     list-style: none;
