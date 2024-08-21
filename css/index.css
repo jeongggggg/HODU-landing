@@ -14,9 +14,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 17rem;
 }
 
-.sec01_left_contain h1{
+.txt_cont h1{
     font-size: clamp(2.4rem,3.3vw,4.8rem);
     font-weight: 700;
     line-height: clamp(3rem,4.2vw,6rem);
@@ -32,6 +33,11 @@
     height: 100%;
     display: flex;
     align-items: flex-end;
+}
+
+.sec01_img img{
+    max-width: 100%;
+    height: auto;
 }
 
 .sec02{
@@ -77,7 +83,8 @@
 
 .sec03 .inner::before{
     content: "";
-    width: 100%;
+    /*width: 100%;*/
+    width: calc(100% - 6.4rem);
     height: 1px;
     background-color: #C4C4C4;
     position: absolute;
@@ -201,6 +208,10 @@
 #email::placeholder{
     color: #767676;
     font-size: clamp(1.2rem,1.1vw,1.6rem);
+}
+
+.email_label{
+    display: none;
 }
 
 #subscribeBtn{

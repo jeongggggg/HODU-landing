@@ -88,11 +88,15 @@ img{
     height: auto;
 }
 
+section{
+    padding: 0 3.2rem;
+}
+
 .w_1280{
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 3.2rem;
+    /*padding: 0 3.2rem;*/
 }
 
 .orange_btn{

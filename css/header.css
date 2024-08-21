@@ -4,7 +4,7 @@
 
 header{
     width: 100vw;
-    padding: clamp(2.4rem, 1.8vw, 2.6rem) 3.2rem;
+    padding: clamp(2.2rem, 1.8vw, 2.6rem)  clamp(2rem, 2.2vw, 3.2rem);
     box-sizing: border-box;
     position: absolute;
     top: 0;
