@@ -59,6 +59,10 @@
         margin-bottom: 32rem;
     }
 
+    .subscribe{
+        height: 24rem;
+    }
+
     .subscribe .inner{
         transform: translateY(-80%);
         padding-bottom: 0;

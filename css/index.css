@@ -157,8 +157,8 @@
 }
 
 .subscribe{
+    height: 34rem;
     background: url("/img/cat_bg.png") no-repeat center / cover;
-    padding-bottom: 18.1rem;
     position: relative;
 }
 
