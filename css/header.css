@@ -109,6 +109,10 @@ nav ul{
     margin-bottom: 6.6rem;
 }
 
+/* **************************************** *
+ * Responsive
+ * **************************************** */
+
 @media (max-width: 768px) {
     nav.pc {
         display: none;
