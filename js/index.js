@@ -10,13 +10,31 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// 햄버거 메뉴 버튼 클릭 시 메뉴 표시/숨김
+// 햄버거 메뉴 버튼 클릭 시 메뉴 표시
 document.querySelector('.ham_btn').addEventListener('click', function() {
     document.querySelector('.ham_menu').classList.add('on');
 });
 
 // 닫기 버튼 클릭 시 메뉴 숨김
 document.querySelector('.ham_close_btn').addEventListener('click', function() {
+    document.querySelector('.ham_menu').classList.remove('on');
+});
+
+// 햄버거 메뉴 외의 영역 클릭 시 메뉴 닫기
+document.addEventListener('click', function(event) {
+    const hamMenu = document.querySelector('.ham_menu');
+    const hamBtn = document.querySelector('.ham_btn');
+
+    // 메뉴가 열려있고 클릭한 곳이 햄버거 메뉴나 버튼이 아닌 경우
+    if (hamMenu.classList.contains('on') && !hamMenu.contains(event.target) && !hamBtn.contains(event.target)) {
+        hamMenu.classList.remove('on');
+    }
+});
+
+// 햄버거 딤 클릭시 닫기
+const hamOverlay = document.querySelector('.ham_dim');
+
+hamOverlay.addEventListener('click', function() {
     document.querySelector('.ham_menu').classList.remove('on');
 });
 
@@ -57,8 +75,6 @@ window.addEventListener('scroll', function() {
         scrollBtnWrap.classList.remove('stop');
     }
 });
-
-
 
 // 모달 딤 클릭 시 닫기
 window.onclick = function(event) {
