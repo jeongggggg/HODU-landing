@@ -62,12 +62,9 @@ window.addEventListener('scroll', function() {
     const sct = window.scrollY,
         viewportHeight = window.innerHeight,
         scrollBtnWrap = document.querySelector('.top_btn'),
-        footer = document.querySelector('footer'),
-        wrap = document.querySelector('.wrap'),
+        container = document.querySelector('main'),
         containerBtm = sct + viewportHeight,
-        wrapHeight = wrap.offsetHeight,
-        footerHeight = footer.offsetHeight,
-        contHeight = wrapHeight - footerHeight;
+        contHeight = container.offsetHeight;
 
     if (containerBtm >= contHeight) {
         scrollBtnWrap.classList.add('stop');
