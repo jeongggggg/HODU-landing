@@ -6,4 +6,4 @@
 *.iml
 out
 gen
-/js/config.js
+config.js
