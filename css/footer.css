@@ -42,19 +42,19 @@ footer .inner{
 }
 
 .blog{
-    background: url("img/icon/blog.png") no-repeat center / 24px;
+    background: url("../img/icon/blog.png") no-repeat center / 24px;
 }
 
 .instagram{
-    background: url("img/icon/instagram.png") no-repeat center / 24px;
+    background: url("../img/icon/instagram.png") no-repeat center / 24px;
 }
 
 .facebook{
-    background: url("img/icon/facebook.png") no-repeat center / 24px;
+    background: url("../img/icon/facebook.png") no-repeat center / 24px;
 }
 
 .youtube{
-    background: url("img/icon/youtube.png") no-repeat center / 24px;
+    background: url("../img/icon/youtube.png") no-repeat center / 24px;
 }
 .add_mo_layout ul{
     height: 100%;
@@ -105,11 +105,11 @@ footer .inner{
     height: 100%;
     text-indent: 100%;
     white-space: nowrap;
-    background: url("img/icon/top_btn.png") no-repeat center / cover;
+    background: url("../img/icon/top_btn.png") no-repeat center / cover;
 }
 
 .top_btn button:hover{
-    background: url("img/icon/top_btn_hov.png") no-repeat center / cover;
+    background: url("../img/icon/top_btn_hov.png") no-repeat center / cover;
     transition: ease-in-out 0.25s;
 }
 
@@ -137,6 +137,6 @@ footer .inner{
     }
 
     .top_btn button{
-        background: url("img/icon/top_btn_hov.png") no-repeat center / cover;
+        background: url("../img/icon/top_btn_hov.png") no-repeat center / cover;
     }
 }
