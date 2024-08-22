@@ -15,8 +15,10 @@
         <header>
             <div class="inner w_1280">
                 <a href="/" class="logo">
-                    <img src="./img/logo.png" alt="로고" class="pc">
-                    <img src="./img/mo/mo_logo.png" alt="로고" class="mo">
+                    <picture class="sec01_img">
+                        <source media="(max-width: 768px)" srcset="./img/mo/mo_logo.png">
+                        <img src="./img/logo.png" alt="logo">
+                    </picture>
                 </a>
                 <nav class="pc">
                     <ul>
@@ -34,11 +36,11 @@
                         <button type="button" class="orange_btn">Download</button>
                     </a>
                 </nav>
-                <button type="button" class="ham_btn"></button>
+                <button type="button" class="ham_btn" aria-label="Menu open"></button>
             </div>
             <div class="hamburger mo">
                 <div class="ham_menu">
-                    <button type="button" class="ham_close_btn"></button>
+                    <button type="button" class="ham_close_btn" aria-label="Menu close"></button>
                     <nav>
                         <ul>
                             <li>
@@ -78,10 +80,10 @@
                             <button type="button" class="orange_btn">Download</button>
                         </a>
                     </div>
-                    <div class="sec01_img">
-                        <img src="img/sec01_cat.png" alt="상자를 뒤집어 쓴 고양이 사진" class="pc">
-                        <img src="img/mo/mo_sec01_cat.png" alt="상자를 뒤집어 쓴 고양이 사진" class="mo">
-                    </div>
+                    <picture class="sec01_img">
+                        <source media="(max-width: 768px)" srcset="img/mo/mo_sec01_cat.png">
+                        <img src="img/sec01_cat.png" alt="">
+                    </picture>
                 </div>
             </section>
             <section class="sec02">
@@ -216,6 +218,7 @@
             <div class="top_btn">
                 <button type="button">맨 상단으로 올라가기</button>
             </div>
+            <!-- // Top button -->
         </footer>
         <!-- Modal -->
         <dialog id="subscribeModal" class="modal">
@@ -229,6 +232,7 @@
                 <button type="button" id="modalOkBtn" class="orange_btn">OK! I love HODU</button>
             </div>
         </dialog>
+        <!-- // Modal -->
     </div>
     <script src="./js/index.js"></script>
 </body>
