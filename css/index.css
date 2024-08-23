@@ -152,8 +152,10 @@
 }
 
 .map_content{
+    width: 100%;
     border-radius: 12px;
     overflow: hidden;
+    height: clamp(13.2rem,36.1vw,52rem);
 }
 
 .map_content img{
