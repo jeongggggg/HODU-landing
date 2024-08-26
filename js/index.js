@@ -1,92 +1,77 @@
 import config from "./config.js";
 const { API_KEY } = config;
 
-// 스크롤 시 헤더 고정
+// 유틸리티 함수
+function addClass(element, className) {
+    element.classList.add(className);
+}
+
+function removeClass(element, className) {
+    element.classList.remove(className);
+}
+
+function toggleClass(element, condition, className) {
+    condition ? addClass(element, className) : removeClass(element, className);
+}
+
+// 헤더 스크롤
 function handleHeaderFixed() {
     const header = document.querySelector('header');
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition > 0) {
-        header.classList.add('fixed');
-    } else {
-        header.classList.remove('fixed');
-    }
+    toggleClass(header, window.scrollY > 0, 'fixed');
 }
 
-// 햄버거 메뉴 열기
-function openHamburgerMenu() {
-    document.querySelector('.ham_menu').classList.add('on');
+// 햄버거 메뉴
+function toggleHamburgerMenu(open) {
+    const menu = document.querySelector('.ham_menu');
+    toggleClass(menu, open, 'on');
 }
 
-// 햄버거 메뉴 닫기
-function closeHamburgerMenu() {
-    document.querySelector('.ham_menu').classList.remove('on');
-}
-
-// 햄버거 메뉴 외부 클릭 시 메뉴 닫기
 function handleOutsideClick(event) {
     const hamMenu = document.querySelector('.ham_menu');
     const hamBtn = document.querySelector('.ham_btn');
 
-    // 메뉴가 열려있고, 클릭한 곳이 햄버거 메뉴나 버튼이 아닌 경우
+    // 메뉴가 열려있고 클릭한 곳이 햄버거 메뉴나 버튼이 아닌 경우
     if (hamMenu.classList.contains('on') && !hamMenu.contains(event.target) && !hamBtn.contains(event.target)) {
-        closeHamburgerMenu();
+        toggleHamburgerMenu(false);
     }
 }
 
-// 햄버거 메뉴 딤 클릭 시 닫기
 function handleHamburgerOverlayClick() {
-    closeHamburgerMenu();
+    toggleHamburgerMenu(false);
 }
 
-// 스크롤 시 탑 버튼 노출
+// 스크롤 버튼
 function handleTopButtonDisplay() {
     const topBtn = document.querySelector('.top_btn');
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition > 0) {
-        topBtn.classList.add('show');
-    } else {
-        topBtn.classList.remove('show');
-    }
+    toggleClass(topBtn, window.scrollY > 0, 'show');
 }
 
-// 탑 버튼 클릭 시 페이지 상단으로 스크롤
 function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // 부드럽게 스크롤
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 스크롤 탑 버튼 정지(stop) 클래스 추가
 function handleTopButtonStop() {
-    const sct = window.scrollY,
-        viewportHeight = window.innerHeight,
-        scrollBtnWrap = document.querySelector('.top_btn'),
-        container = document.querySelector('main'),
-        containerBtm = sct + viewportHeight,
-        contHeight = container.offsetHeight;
+    const sct = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const container = document.querySelector('main');
+    const scrollBtnWrap = document.querySelector('.top_btn');
 
-    if (containerBtm >= contHeight) {
-        scrollBtnWrap.classList.add('stop');
-    } else {
-        scrollBtnWrap.classList.remove('stop');
-    }
+    const containerBtm = sct + viewportHeight;
+    const contHeight = container.offsetHeight;
+
+    // 스크롤 버튼이 멈춰야 하는 조건
+    toggleClass(scrollBtnWrap, containerBtm >= contHeight, 'stop');
 }
 
-// 모달 딤 클릭 시 닫기
+// 모달 처리
 function handleModalDimClick(event) {
-    const modal = document.getElementById('subscribeModal');
-
-    if (event.target === modal) {
+    if (event.target === document.getElementById('subscribeModal')) {
         closeModal();
     }
 }
 
-// 이메일 유효성 검사 및 모달 열기
 function handleSubscribeFormSubmit(event) {
-    event.preventDefault(); // 폼 제출 막기
+    event.preventDefault();
 
     const email = document.getElementById('email').value;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -100,88 +85,84 @@ function handleSubscribeFormSubmit(event) {
     }
 }
 
-// 모달 열기
 function openModal() {
     document.getElementById('subscribeModal').style.display = 'flex';
 }
 
-// 모달 닫기
 function closeModal() {
     document.getElementById('subscribeModal').style.display = 'none';
 }
 
-// 모달 확인 버튼 클릭 시 모달 닫기 및 폼 제출
 function handleModalOkButtonClick() {
     closeModal();
     document.getElementById('subscribeForm').submit();
 }
 
-// 이벤트 리스너 등록
+// 이벤트 리스너 초기화
 function initEventListeners() {
-    window.addEventListener('scroll', handleHeaderFixed);
-    window.addEventListener('scroll', handleTopButtonDisplay);
-    window.addEventListener('scroll', handleTopButtonStop);
+    window.addEventListener('scroll', () => {
+        handleHeaderFixed();
+        handleTopButtonDisplay();
+        handleTopButtonStop();
+    });
 
-    document.querySelector('.ham_btn').addEventListener('click', openHamburgerMenu);
-    document.querySelector('.ham_close_btn').addEventListener('click', closeHamburgerMenu);
+    const hamBtn = document.querySelector('.ham_btn');
+    if (hamBtn) hamBtn.addEventListener('click', () => toggleHamburgerMenu(true));
+
+    const hamCloseBtn = document.querySelector('.ham_close_btn');
+    if (hamCloseBtn) hamCloseBtn.addEventListener('click', () => toggleHamburgerMenu(false));
+
     document.addEventListener('click', handleOutsideClick);
 
     const hamOverlay = document.querySelector('.ham_dim');
-    if (hamOverlay) {
-        hamOverlay.addEventListener('click', handleHamburgerOverlayClick);
-    }
+    if (hamOverlay) hamOverlay.addEventListener('click', handleHamburgerOverlayClick);
 
     const topBtn = document.querySelector('.top_btn');
-    if (topBtn) {
-        topBtn.addEventListener('click', scrollToTop);
-    }
+    if (topBtn) topBtn.addEventListener('click', scrollToTop);
 
     window.addEventListener('click', handleModalDimClick);
 
-    document.getElementById('subscribeForm').addEventListener('submit', handleSubscribeFormSubmit);
-    document.getElementById('modalOkBtn').addEventListener('click', handleModalOkButtonClick);
+    const subscribeForm = document.getElementById('subscribeForm');
+    if (subscribeForm) subscribeForm.addEventListener('submit', handleSubscribeFormSubmit);
+
+    const modalOkBtn = document.getElementById('modalOkBtn');
+    if (modalOkBtn) modalOkBtn.addEventListener('click', handleModalOkButtonClick);
 }
 
-// Kakao Map API 스크립트를 동적으로 로드하는 함수
+// Kakao Map API 초기화
 function loadKakaoMapScript() {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${API_KEY}&autoload=false`;
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error('Failed to load Kakao Map API script'));
+        script.onload = resolve;
+        script.onerror = () => reject(new Error('Kakao Map API 스크립트 로드 실패'));
         document.head.appendChild(script);
     });
 }
 
-// Kakao API가 로드된 후에 실행될 함수
 function initializeMap() {
-    // Kakao API가 로드된 후에 호출됨
-    kakao.maps.load(function () {
-        var mapContainer = document.getElementById('map'),
-            mapOption = {
-                center: new kakao.maps.LatLng(33.4423379727783, 126.571449734542),
-                level: 3
-            };
+    kakao.maps.load(() => {
+        const mapContainer = document.getElementById('map');
+        const mapOption = {
+            center: new kakao.maps.LatLng(33.4423379727783, 126.571449734542),
+            level: 3
+        };
 
-        var map = new kakao.maps.Map(mapContainer, mapOption);
+        const map = new kakao.maps.Map(mapContainer, mapOption);
 
-        var markerPosition  = new kakao.maps.LatLng(33.4423379727783, 126.571449734542);
-
-        var marker = new kakao.maps.Marker({
-            position: markerPosition
-        });
-
+        const markerPosition = new kakao.maps.LatLng(33.4423379727783, 126.571449734542);
+        const marker = new kakao.maps.Marker({ position: markerPosition });
         marker.setMap(map);
     });
 }
 
-loadKakaoMapScript()
-    .then(initializeMap)
-    .catch(error => console.error(error));
-
 // 초기화
 function init() {
     initEventListeners();
+
+    loadKakaoMapScript()
+        .then(initializeMap)
+        .catch(error => console.error(error));
 }
 
 // 페이지 로드 시 초기화 실행
