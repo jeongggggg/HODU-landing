@@ -1,4 +1,22 @@
-// 유틸리티 함수
+
+/* **************************************** *
+ * INIT
+ * **************************************** */
+
+function init() {
+    initEventListeners(); // 이벤트 리스너 초기화
+}
+
+/* **************************************** *
+ * ON LOAD
+ * **************************************** */
+
+document.addEventListener('DOMContentLoaded', init);
+
+/* **************************************** *
+ * Default Functions
+ * **************************************** */
+
 function addClass(element, className) {
     element.classList.add(className);
 }
@@ -11,33 +29,39 @@ function toggleClass(element, condition, className) {
     condition ? addClass(element, className) : removeClass(element, className);
 }
 
-// 헤더 스크롤
+/* **************************************** *
+ * Other Functions
+ * **************************************** */
+
+// 헤더 고정 처리
 function handleHeaderFixed() {
     const header = document.querySelector('header');
     toggleClass(header, window.scrollY > 0, 'fixed');
 }
 
-// 햄버거 메뉴
+// 햄버거 메뉴 열기/닫기
 function toggleHamburgerMenu(open) {
     const menu = document.querySelector('.ham_menu');
     toggleClass(menu, open, 'on');
 }
 
+// 햄버거 메뉴 바깥 클릭 시 닫기
 function handleOutsideClick(event) {
     const hamMenu = document.querySelector('.ham_menu');
     const hamBtn = document.querySelector('.ham_btn');
 
-    // 메뉴가 열려있고 클릭한 곳이 햄버거 메뉴나 버튼이 아닌 경우
+    // 메뉴가 열려있고, 클릭한 곳이 햄버거 메뉴나 버튼이 아닌 경우
     if (hamMenu.classList.contains('on') && !hamMenu.contains(event.target) && !hamBtn.contains(event.target)) {
         toggleHamburgerMenu(false);
     }
 }
 
+// 햄버거 오버레이 클릭 시 닫기
 function handleHamburgerOverlayClick() {
     toggleHamburgerMenu(false);
 }
 
-// 스크롤 버튼
+// 상단 이동 버튼 표시 및 스크롤 처리
 function handleTopButtonDisplay() {
     const topBtn = document.querySelector('.top_btn');
     toggleClass(topBtn, window.scrollY > 0, 'show');
@@ -67,6 +91,20 @@ function handleModalDimClick(event) {
     }
 }
 
+function openModal() {
+    document.getElementById('subscribeModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('subscribeModal').style.display = 'none';
+}
+
+function handleModalOkButtonClick() {
+    closeModal();
+    document.getElementById('subscribeForm').submit();
+}
+
+// 이메일 유효성 검사 및 폼 제출
 function handleSubscribeFormSubmit(event) {
     event.preventDefault();
 
@@ -82,20 +120,10 @@ function handleSubscribeFormSubmit(event) {
     }
 }
 
-function openModal() {
-    document.getElementById('subscribeModal').style.display = 'flex';
-}
+/* **************************************** *
+ * Helper
+ * **************************************** */
 
-function closeModal() {
-    document.getElementById('subscribeModal').style.display = 'none';
-}
-
-function handleModalOkButtonClick() {
-    closeModal();
-    document.getElementById('subscribeForm').submit();
-}
-
-// 이벤트 리스너 초기화
 function initEventListeners() {
     window.addEventListener('scroll', () => {
         handleHeaderFixed();
@@ -125,11 +153,3 @@ function initEventListeners() {
     const modalOkBtn = document.getElementById('modalOkBtn');
     if (modalOkBtn) modalOkBtn.addEventListener('click', handleModalOkButtonClick);
 }
-
-// 초기화
-function init() {
-    initEventListeners();
-}
-
-// 페이지 로드 시 초기화 실행
-document.addEventListener('DOMContentLoaded', init);
