@@ -129,7 +129,6 @@ footer .inner{
     .default_layout{
         align-items: flex-start;
         flex-direction: column;
-        /*gap: 3.9rem;*/
     }
 
     .sns_list{
