@@ -1,6 +1,3 @@
-import config from "./config.js";
-const { API_KEY } = config;
-
 // 유틸리티 함수
 function addClass(element, className) {
     element.classList.add(className);
@@ -129,40 +126,9 @@ function initEventListeners() {
     if (modalOkBtn) modalOkBtn.addEventListener('click', handleModalOkButtonClick);
 }
 
-// Kakao Map API 초기화
-function loadKakaoMapScript() {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${API_KEY}&autoload=false`;
-        script.onload = resolve;
-        script.onerror = () => reject(new Error('Kakao Map API 스크립트 로드 실패'));
-        document.head.appendChild(script);
-    });
-}
-
-function initializeMap() {
-    kakao.maps.load(() => {
-        const mapContainer = document.getElementById('map');
-        const mapOption = {
-            center: new kakao.maps.LatLng(33.4423379727783, 126.571449734542),
-            level: 3
-        };
-
-        const map = new kakao.maps.Map(mapContainer, mapOption);
-
-        const markerPosition = new kakao.maps.LatLng(33.4423379727783, 126.571449734542);
-        const marker = new kakao.maps.Marker({ position: markerPosition });
-        marker.setMap(map);
-    });
-}
-
 // 초기화
 function init() {
     initEventListeners();
-
-    loadKakaoMapScript()
-        .then(initializeMap)
-        .catch(error => console.error(error));
 }
 
 // 페이지 로드 시 초기화 실행
