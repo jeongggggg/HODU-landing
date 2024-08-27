@@ -153,3 +153,4 @@ function initEventListeners() {
     const modalOkBtn = document.getElementById('modalOkBtn');
     if (modalOkBtn) modalOkBtn.addEventListener('click', handleModalOkButtonClick);
 }
+
