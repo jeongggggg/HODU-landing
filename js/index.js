@@ -92,11 +92,11 @@ function handleModalDimClick(event) {
 }
 
 function openModal() {
-    document.getElementById('subscribeModal').style.display = 'flex';
+    addClass(document.getElementById('subscribeModal'), 'open');
 }
 
 function closeModal() {
-    document.getElementById('subscribeModal').style.display = 'none';
+    removeClass(document.getElementById('subscribeModal'), 'open');
 }
 
 function handleModalOkButtonClick() {

@@ -247,6 +247,10 @@
     justify-content: center;
 }
 
+.modal.open{
+    display: flex;
+}
+
 .modal_content {
     width: clamp(30rem,41.7vw,60rem);
     background: url("../img/popup/popup-bg.png") no-repeat top / cover;
