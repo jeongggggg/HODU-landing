@@ -71,18 +71,18 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+const container = document.querySelector('main');
+const contHeight = container.offsetHeight;
+
 function handleTopButtonStop() {
     const sct = window.scrollY;
     const viewportHeight = window.innerHeight;
-    const container = document.querySelector('main');
     const scrollBtnWrap = document.querySelector('.top_btn');
-
     const containerBtm = sct + viewportHeight;
-    const contHeight = container.offsetHeight;
 
-    // 스크롤 버튼이 멈춰야 하는 조건
     toggleClass(scrollBtnWrap, containerBtm >= contHeight, 'stop');
 }
+
 
 // 모달 처리
 function handleModalDimClick(event) {
