@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 
 html{
     font-size: 62.5%;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 body {
@@ -40,16 +40,24 @@ body {
     font-size: 1.6rem;
     overflow-x: hidden;
 }
+
+body.no-scroll{
+    overflow: hidden;
+}
+
 ol, ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -133,4 +141,8 @@ mark{
     @media (max-width: 767px) {
        display: block;
     }
+}
+
+dialog{
+    border: none;
 }

@@ -92,10 +92,12 @@ function handleModalDimClick(event) {
 
 function openModal() {
     addClass(document.getElementById('subscribeModal'), 'open');
+    document.body.classList.add('no-scroll');
 }
 
 function closeModal() {
     removeClass(document.getElementById('subscribeModal'), 'open');
+    document.body.classList.remove('no-scroll');
     document.getElementById('email').value = '';
 }
 
