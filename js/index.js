@@ -1,22 +1,11 @@
-
-/* **************************************** *
- * INIT
- * **************************************** */
-
+// 초기화
 function init() {
-    initEventListeners(); // 이벤트 리스너 초기화
+    initEventListeners();
 }
-
-/* **************************************** *
- * ON LOAD
- * **************************************** */
 
 document.addEventListener('DOMContentLoaded', init);
 
-/* **************************************** *
- * Default Functions
- * **************************************** */
-
+// 클래스 조작 함수
 function addClass(element, className) {
     element.classList.add(className);
 }
@@ -29,34 +18,35 @@ function toggleClass(element, condition, className) {
     condition ? addClass(element, className) : removeClass(element, className);
 }
 
-/* **************************************** *
- * Other Functions
- * **************************************** */
+// 이벤트 바인딩 함수
+function bindEvent(selector, eventType, handler) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.addEventListener(eventType, handler);
+    }
+}
 
-// 헤더 고정 처리
+// 헤더 고정 함수
 function handleHeaderFixed() {
     const header = document.querySelector('header');
     toggleClass(header, window.scrollY > 0, 'fixed');
 }
 
-// 햄버거 메뉴 열기/닫기
+// 햄버거 메뉴 관련 동작
 function toggleHamburgerMenu(open) {
     const menu = document.querySelector('.ham_menu');
     toggleClass(menu, open, 'on');
 }
 
-// 햄버거 메뉴 바깥 클릭 시 닫기
 function handleOutsideClick(event) {
     const hamMenu = document.querySelector('.ham_menu');
     const hamBtn = document.querySelector('.ham_btn');
 
-    // 메뉴가 열려있고, 클릭한 곳이 햄버거 메뉴나 버튼이 아닌 경우
     if (hamMenu.classList.contains('on') && !hamMenu.contains(event.target) && !hamBtn.contains(event.target)) {
         toggleHamburgerMenu(false);
     }
 }
 
-// 햄버거 오버레이 클릭 시 닫기
 function handleHamburgerOverlayClick() {
     toggleHamburgerMenu(false);
 }
@@ -71,6 +61,7 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 상단 이동 버튼 정지 위치 처리
 const container = document.querySelector('main');
 const contHeight = container.offsetHeight;
 
@@ -122,10 +113,7 @@ function handleSubscribeFormSubmit(event) {
     }
 }
 
-/* **************************************** *
- * Helper
- * **************************************** */
-
+// 이벤트 리스너 초기화
 function initEventListeners() {
     window.addEventListener('scroll', () => {
         handleHeaderFixed();
@@ -133,26 +121,15 @@ function initEventListeners() {
         handleTopButtonStop();
     });
 
-    const hamBtn = document.querySelector('.ham_btn');
-    if (hamBtn) hamBtn.addEventListener('click', () => toggleHamburgerMenu(true));
-
-    const hamCloseBtn = document.querySelector('.ham_close_btn');
-    if (hamCloseBtn) hamCloseBtn.addEventListener('click', () => toggleHamburgerMenu(false));
-
+    bindEvent('.ham_btn', 'click', () => toggleHamburgerMenu(true));
+    bindEvent('.ham_close_btn', 'click', () => toggleHamburgerMenu(false));
     document.addEventListener('click', handleOutsideClick);
+    bindEvent('.ham_dim', 'click', () => toggleHamburgerMenu(false));
 
-    const hamOverlay = document.querySelector('.ham_dim');
-    if (hamOverlay) hamOverlay.addEventListener('click', handleHamburgerOverlayClick);
-
-    const topBtn = document.querySelector('.top_btn');
-    if (topBtn) topBtn.addEventListener('click', scrollToTop);
+    bindEvent('.top_btn', 'click', scrollToTop);
 
     window.addEventListener('click', handleModalDimClick);
-
-    const subscribeForm = document.getElementById('subscribeForm');
-    if (subscribeForm) subscribeForm.addEventListener('submit', handleSubscribeFormSubmit);
-
-    const modalOkBtn = document.getElementById('modalOkBtn');
-    if (modalOkBtn) modalOkBtn.addEventListener('click', handleModalOkButtonClick);
+    bindEvent('#subscribeForm', 'submit', handleSubscribeFormSubmit);
+    bindEvent('#modalOkBtn', 'click', handleModalOkButtonClick);
 }
 
