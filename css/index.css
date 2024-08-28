@@ -16,7 +16,7 @@
     justify-content: space-between;
 }
 
-.txt_cont h1{
+.txt_cont h2{
     font-size: clamp(2.4rem,3.3vw,4.8rem);
     font-weight: 700;
     line-height: clamp(3rem,4.2vw,6rem);

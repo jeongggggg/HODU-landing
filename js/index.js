@@ -83,7 +83,6 @@ function handleTopButtonStop() {
     toggleClass(scrollBtnWrap, containerBtm >= contHeight, 'stop');
 }
 
-
 // 모달 처리
 function handleModalDimClick(event) {
     if (event.target === document.getElementById('subscribeModal')) {
@@ -97,11 +96,12 @@ function openModal() {
 
 function closeModal() {
     removeClass(document.getElementById('subscribeModal'), 'open');
+    document.getElementById('email').value = '';
 }
 
 function handleModalOkButtonClick() {
-    closeModal();
     document.getElementById('subscribeForm').submit();
+    closeModal();
 }
 
 // 이메일 유효성 검사 및 폼 제출
